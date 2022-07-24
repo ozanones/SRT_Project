@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="SRT Configuration">
+        <meta name="author" content>
+        <title>SRT Gateway v.0.1</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="srt.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark" id="navbarHeader">
+</div>
+        </header>
+        <main role="main">
+            <section class="text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading">SRT Gateway</h1>
+                </div>
+            </section>
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 position-relative align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Input</p>
+                                <form class="ml-3 mr-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbInputType" id="rbSDI" value="inputSDI" checked>
+                                        <label>SDI</label>
+                                    </div>
+                                    <div class="col-md-13">
+                                        <select class="custom-select" id="lstInputList">
+                                            <option>Select Input</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input class="form-check-input" type="radio" name="rbInputType" id="rbUDP" value="inputUDP" align="middle">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <label for="inlineFormCustomSelectPref">UDP/Multicast</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-2">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">IP</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="text" value="0.0.0.0" id="txtUDPIP" class="form-control" placeholder="255.255.255.255">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Port</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" value="8888" id="txtUDPPort" class="form-control" placeholder="8888">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input class="form-check-input" type="radio" name="rbInputType" id="rbTest" value="inputTest" checked>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <label for="inlineFormCustomSelectPref">Test signal - SMPTE Bars</label>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Output</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">SRT</label>
+                                    <div class="form-row">
+                                        <div class="col-md-2">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">IP</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="text" value="0.0.0.0" id="txtSRTIP" class="form-control" placeholder="255.255.255.255">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Port</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" value="8888" id="txtSRTPort" class="form-control" placeholder="8888">
+                                        </div>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Latency (ms)</label>
+                                    <input class="form-control" id="txtSRTLatency" type="text" value="120">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mode</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbSRTMode" id="rbReceiver" value="modeReceiver" checked="checked">
+                                        <label class="form-check-label" for="rbSRTMode">Listener</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbSRTMode" id="rbCaller" value="modeCaller">
+                                        <label class="form-check-label" for="rbSRTMode">Caller</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbSRTMode" id="rbRendezvous" value="modeRendezvous">
+                                        <label class="form-check-label" for="rbSRTMode">Rendezvous</label>
+                                    </div>
+                                    <p> </p>
+                                    <div>
+</div>
+                                    <div class="col-md-1">
+                                        <input class="form-check-input" type="checkbox" id="cbPassword" value="srtPassword">
+                                        <label for="inlineFormCustomSelectPref">Password</label>
+                                    </div>
+                                    <div class="col-md-8">
+</div>
+                                    <input class="form-control" id="txtSRTPassword" type="text" placeholder="*****">
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Video</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbVideoCodec" value="vcodecH265">
+                                        <label class="form-check-label" for="rbVideoCodec">H.265/HEVC</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbVideoCodec" value="vcodecH264" checked="true">
+                                        <label class="form-check-label" for="rbVideoCodec">H.264</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbVideoCodec" value="vcodecMPEG2">
+                                        <label class="form-check-label" for="rbVideoCodec">MPEG 2</label>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (MBit/sec)</label>
+                                    <div class="form-check">
+                                        <select class="form-control" id="cbVideoBitrate" multiple="multiple">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option selected="">3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Audio</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecAAC" checked="true">
+                                        <label class="form-check-label" for="rbAudioCodec">AAC</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecMP3">
+                                        <label class="form-check-label" for="rbAudioCodec">MP3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecMPEG2">
+                                        <label class="form-check-label" for="rbAudioCodec">MPEG 2 Audio</label>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (KBit/sec)</label>
+                                    <div class="form-check">
+                                        <select class="form-control" id="cbAudioBitrate" multiple="">
+                                            <option selected="">96</option>
+                                            <option>128</option>
+                                            <option>256</option>
+                                            <option>384</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="text-muted text-center lead">Preview</p>
+                                <div width="320px" height="200px">
+                                    <canvas id="video-canvas" width="320px" height="200px" lass="bg-dark"></canvas>
+                                </div>
+                                <div class="card-body">
+</div>
+                            </div>
+                            <div class="card box-shadow mb-auto">
+                                <p class="text-muted text-center lead">Statistics</p>
+                                <form class="ml-3 mr-3">
+                                    <label id="lblCPU" class="my-1 mr-2" for="inlineFormCustomSelectPref">CPU Load :</label>
+                                    <br>
+                                    <label id="lblIP" class="my-1 mr-2" for="inlineFormCustomSelectPref">IP :</label>
+                                    <br>
+                                    <label id="lblFrame" class="my-1 mr-2" for="inlineFormCustomSelectPref">Frame :</label>
+                                    <br>
+                                    <label id="lblBitrate" class="my-1 mr-2" for="inlineFormCustomSelectPref">Avg. Bitrate:</label>
+                                    <br>
+                                    <label id="lblSpeed" class="my-1 mr-2" for="inlineFormCustomSelectPref">Speed:</label>
+                                    <br>
+                                    <label id="lblTime" class="my-1 mr-2" for="inlineFormCustomSelectPref">Time:</label>
+                                    <br>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Log Output</p>
+                                <div class="form-group col-md-12"> 
+                                    <label for="formInput17">FFMPEG Log</label>                                     
+                                    <textarea class="form-control" id="txtEncoderLog" rows="5"></textarea>                                     
+                                </div>
+                                <div class="form-group col-md-12"> 
+                                    <label for="formInput17">SRT Log</label>                                     
+                                    <textarea class="form-control" id="txtSRTLog" rows="5"></textarea>                                     
+                                </div>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                        <div>
+</div>
+                        <div class="col-md-4 align-items-end">
+</div>
+                        <div class="col-md-8">
+</div>
+                    </div>                     
+                    <div>
+                        <p> </p>
+                    </div>
+                    <div id="statusBox" class="alert alert-danger" role="alert">Disconnected</div>
+                </div>
+            </div>
+        </main>
+        <div>
+            <p> </p>
+        </div>
+        <div align="center">
+            <button type="button" class="btn btn-primary" onclick="reqSaveSettings();">Save Settings</button>
+            <button type="button" class="btn btn-success " onclick="doSend('startServer');">Start</button>
+            <button type="button" class="btn btn-danger" onclick="doSend('stopServer');">Stop</button>
+            <button type="button" class="btn btn-danger" onclick="reqInputList();">Refresh Input List</button>
+            <p class="text-center">© 2020&nbsp;</p>
+        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/srt.js"></script>
+        <script type="text/javascript" src="assets/js/jsmpeg.min.js"></script>
+        <script type="text/javascript">
+            var canvas = document.getElementById('video-canvas');
+            var url = 'ws://'+document.location.hostname+':8082/';
+            var player = new JSMpeg.Player(url, {canvas: canvas});
+        </script>
+    </body>
+</html>

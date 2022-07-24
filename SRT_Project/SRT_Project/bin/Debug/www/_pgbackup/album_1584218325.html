@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="SRT Configuration">
+        <meta name="author" content>
+        <title>SRT Gateway v.0.1</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="album.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark" id="navbarHeader">
+</div>
+        </header>
+        <main role="main">
+            <section class="text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading">SRT Gateway</h1>
+                    <div id="statusBox" class="alert" role="alert">
+</div>
+                </div>
+            </section>
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 position-relative align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Input / Output</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Decklink Input</label>
+                                    <select class="custom-select">
+                                        <option selected="">Choose Input...</option>
+                                        <option value="1">Input 1</option>
+                                        <option value="2">Input 2</option>
+                                        <option value="3">Input 3</option>
+                                        <option value="3">Input 4</option>
+                                        <option value="1">Input 5</option>
+                                        <option value="2">Input 6</option>
+                                        <option value="3">Input 7</option>
+                                        <option value="3">Input 8</option>
+                                    </select>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Output</label>
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="srt://"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="8888"/>
+                                        </div>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Latency (ms)</label>
+                                    <input class="form-control" type="text" placeholder="200">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mode</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="checked">
+                                        <label class="form-check-label" for="exampleRadios1">Caller</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">Listener</label>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Video</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="true">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            H.265/HEVC
+</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">H.264</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">MPEG 2</label>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (MBit/sec)</label>
+                                    <div class="form-check">
+                                        <select class="form-control" id="exampleFormControlSelect2" multiple="multiple">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-items-end">
+                            <div class="card box-shadow mb-auto">
+                                <p class="lead text-muted text-center">Audio</p>
+                                <form class="ml-3 mr-3">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="true">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            AAC
+</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">MP3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">MPEG 2 Audio</label>
+                                    </div>
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (KBit/sec)</label>
+                                    <div class="form-check">
+                                        <select multiple="" class="form-control" id="exampleFormControlSelect2">
+                                            <option>96</option>
+                                            <option>128</option>
+                                            <option>256</option>
+                                            <option>384</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="card-body">
+</div>
+                            </div>
+                        </div>
+                    </div>                     
+                    <div>
+                        <p> </p>
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                        A simple primary alert—check it out!
+</div>
+                </div>
+            </div>
+        </main>
+        <div>
+            <p> </p>
+        </div>
+        <div align="center">
+            <button type="button" class="btn btn-primary" onclick="doSend('saveSettings');">Save Settings</button>
+            <button type="button" class="btn btn-success " onclick="doSend('startEncoder');">Start</button>
+            <button type="button" class="btn btn-danger" onclick="doSend('stopEncoder');">Stop</button>
+            <p class="text-center">© 2020&nbsp;</p>
+        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script>
+
+  function init()
+  {
+    //document.myform.url.value = "ws://localhost:8080/"
+    //document.myform.inputtext.value = "Hello World!"
+    //document.myform.disconnectButton.disabled = true
+  }
+
+  function doConnect()
+  {
+    //websocket = new WebSocket(document.myform.url.value)
+	websocket = new WebSocket("ws://192.168.1.119:8080/");
+    websocket.onopen = function(evt) { onOpen(evt) };
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
+  }
+
+  function onOpen(evt)
+  {
+    $("#statusBox").attr('class', 'alert alert-success');
+    writeToScreen("connected\n")
+    //document.myform.connectButton.disabled = true
+    //document.myform.disconnectButton.disabled = false
+  }
+
+  function onClose(evt)
+  {
+    $("#statusBox").attr('class', 'alert alert-danger');
+    writeToScreen("disconnected\n")
+    //document.myform.connectButton.disabled = false
+    //document.myform.disconnectButton.disabled = true
+      
+    setTimeout(function() {
+      doConnect();
+    }, 1000);
+  }
+            
+
+
+  function onMessage(evt)
+  {
+    writeToScreen("response: " + evt.data + '\n');
+  }
+
+  function onError(evt)
+  {
+    writeToScreen('error: ' + evt.data + '\n');
+
+    websocket.close()
+
+    //document.myform.connectButton.disabled = false
+    //document.myform.disconnectButton.disabled = true
+  }
+
+  function doSend(message)
+  {
+    writeToScreen("sent: " + message + '\n');
+    websocket.send(message);
+  }
+
+  function writeToScreen(message)
+  {
+    //document.myform.outputtext.value += message
+    //document.myform.outputtext.scrollTop = document.myform.outputtext.scrollHeight
+	//alert(message);
+  }
+
+  window.addEventListener("load", init, false)
+
+  function sendText()
+  {
+    doSend(document.myform.inputtext.value);
+  }
+
+  function clearText()
+  {
+    document.myform.outputtext.value = "";
+  }
+
+  function doDisconnect()
+  {
+    websocket.close();
+  }
+
+
+doConnect();
+  </script>
+    </body>
+</html>

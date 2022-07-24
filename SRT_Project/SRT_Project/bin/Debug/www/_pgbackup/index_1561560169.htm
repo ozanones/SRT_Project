@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Highstock Example</title>
+        <style type="text/css"></style>
+    </head>
+    <body>
+        <script src="../../code/highstock.js"></script>
+        <script src="../../code/modules/exporting.js"></script>
+        <script src="../../code/modules/export-data.js"></script>
+        <div id="container" style="height: 400px; min-width: 310px"></div>
+        <script type="text/javascript">
+// Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'line',
+        backgroundColor: '#000000',
+        animation: {
+            duration: 1
+        }, // don't animate in old IE
+        marginRight: 10,
+        events: {
+            load: function () {
+
+                // set up the updating of the chart each second
+                var series = this.series[0];
+                setInterval(function () {
+                    var x = (new Date()).getTime(), // current time
+                        y = Math.random()*10;
+                    series.addPoint([x, y], true, true);
+                }, 100);
+            }
+        }
+    },
+
+    time: {
+        useUTC: false
+    },
+
+    title: {
+        text: 'Loudness Measurement'
+    },    
+    xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 10,
+        plotLines: [{
+            value: 1,
+            width: 1,
+            color: '#00FF00'
+        }]
+    },
+    yAxis: {
+        max: 20,
+        min: 0,
+        title: {
+            text: 'Val',
+
+        },
+        plotBands: [{
+    				color: {
+    					linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+    					stops: [
+                    [0, '#000099'],
+                    [1, '#000000']
+    						]
+					},
+    			from: 10, 
+    			to: 16 
+  			}],
+        gridLineColor: '#009900'
+    },
+    exporting: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            
+        }
+    },
+    series: [{
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 200,
+                    y: Math.random()
+                });
+            }
+            return data;
+        }())
+    }]
+});
+
+		</script>
+    </body>
+</html>

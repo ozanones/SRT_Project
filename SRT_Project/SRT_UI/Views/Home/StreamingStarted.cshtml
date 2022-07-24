@@ -1,0 +1,18 @@
+﻿
+<div class="card mt-5">
+  <div class="card-header">
+    SRT Stream Started
+  </div>
+  <div class="card-body">
+    @*<h5 class="card-title">Input UDP : @ViewBag.udpIp : @ViewBag.udpPort</h5>*@
+    <p class="card-text">Input UDP : @ViewBag.udpIp:@ViewBag.udpPort</p>
+    <p class="card-text">Output SRT : @ViewBag.srtIp:@ViewBag.srtPort</p>
+    <p class="card-text">SRT Mode : @ViewBag.mode</p>
+    <p class="card-text">Video Codec : @ViewBag.Vcodec</p>
+    <p class="card-text">Video Bitrate : @ViewBag.Vbitrate MBit/sec</p>
+    <p class="card-text">Audio Codec : @ViewBag.Acodec</p>
+    <p class="card-text">Audio Bitrate : @ViewBag.Abitrate KBit/sec</p>
+    <p class="card-text">Latency : @ViewBag.Latenct</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Stop</a>
+  </div>
+</div>

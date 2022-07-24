@@ -1,0 +1,12 @@
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.csproj.AssemblyReference.cache
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.csproj.CoreCompileInputs.cache
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\SRT_Project.exe.config
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\SRT_Project.exe
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\SRT_Project.pdb
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\NetCoreServer.dll
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\System.Data.SQLite.dll
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\bin\Debug\System.Data.SQLite.xml
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.csproj.CopyComplete
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.exe
+C:\Users\ozandenizones\OneDrive - acunmedyaholding\Desktop\SRT\SRT_Project\SRT_Project\obj\Debug\SRT_Project.pdb

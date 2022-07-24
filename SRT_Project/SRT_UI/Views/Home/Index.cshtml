@@ -1,0 +1,347 @@
+﻿@model EncoderConfig
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form asp-action="StartSRTStream" asp-controller="Home">
+    <input type="submit" value="START SRT STREAM" class="btn btn-success"/>
+    </form>
+    </div>*@
+
+<div>
+    <main role="main">
+        <section class="text-center mt-5">
+            <div class="container">
+                <h1 class="jumbotron-heading">SRT Gateway</h1>
+            </div>
+        </section>
+        <div>
+            <div class="container">
+                @*<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Get">*@
+
+
+                <div class="row">
+                    <h2 class="my-3">SRT</h2>
+
+                    <form method="post" asp-controller="Home" asp-action="StartSRTStream">
+                        <div class="d-flex">
+
+                            @*for="inputIp"*@
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="strUDPIP"  class="font-weight-bold">Input IP Address</label>
+                                    <input class="form-control mt-1" asp-for="strUDPIP" placeholder="255.255.255.255">
+                                    <span asp-validation-for="strUDPIP" class="text-danger"></span>
+
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="strUDPPort" class="font-weight-bold">Port No</label>
+                                    <input class="form-control" asp-for="strUDPPort" id="inputPort">
+                                    <span asp-validation-for="strUDPPort" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="strSRTIP" class="font-weight-bold">Output SRT IP Address</label>
+                                    <input class="form-control" asp-for="strSRTIP" id="outputIp" placeholder="255.255.255.255">
+                                    <span asp-validation-for="strSRTIP" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="strSRTPort" class="font-weight-bold">Port No</label>
+                                    <input class="form-control" asp-for="strSRTPort" id="outputPort">
+                                    <span asp-validation-for="strSRTPort" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label asp-for="strSRTLatency" class="font-weight-bold">Latency</label>
+                                    <input class="form-control" asp-for="strSRTLatency" id="latency" placeholder="Latency Değerini Girin...">
+                                    <span asp-validation-for="strSRTLatency" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class=col-md-6>
+                                <div class="mx-5">
+                                    <div class="form-group">
+                                        <label for="videoCodec" class="font-weight-bold">Video Codec</label>
+                                        <div>
+                                            <select asp-for="strVideoCodec" class="form-select my-1 mr-sm-2" id="videoCodec">
+                                                <option value="libx265">H.265/HEVC</option>
+                                                <option value="libx264">H.264</option>
+                                                <option value="mpeg2video">MPEG 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="VideoBitrate" class="font-weight-bold">Bitrate(MBit/sec)</label>
+                                        <div>
+                                            <select asp-for="strVideoBitrate" class="form-select my-1 mr-sm-2" id="VideoBitrate">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="audioCodec" class="font-weight-bold">Audio Codec</label>
+                                        <div>
+                                            <select asp-for="strAudioCodec" class="form-select my-1 mr-sm-2" id="audioCodec">
+                                                <option value="aac">AAC</option>
+                                                <option value="mp3">MP3</option>
+                                                <option value="mp2audio">MPEG 2 Audio</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="AudioBitrate" class="font-weight-bold">Bitrate(KBit/sec)</label>
+                                        <div>
+                                            <select asp-for="strAudioBitrate" class="form-select my-1 mr-sm-2" id="AudioBitrate">
+                                                <option value="96">96</option>
+                                                <option value="128">128</option>
+                                                <option value="256">256</option>
+                                                <option value="384">384</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="mode" class="font-weight-bold">Mode</label>
+                                        <div>
+                                            <select asp-for="strSRTMode" class="form-select my-1 mr-sm-2" id="mode">
+                                                <option value="listener">Listener</option>
+                                                <option value="caller">Caller</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-5">Başlat</button>
+                    </form>
+
+                </div>
+
+
+                @*<div class="row">
+                    <div class="col-md-4 position-relative align-items-end">
+                    <div class="card box-shadow mb-auto">
+                    <p class="lead text-muted text-center">Input</p>
+                    <form class="ml-3 mr-3">
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbInputType" id="rbSDI" value="inputSDI" checked>
+                    <label>SDI</label>
+                    </div>
+                    <div class="col-md-13">
+                    <select class="custom-select" id="lstInputList">
+                    <option>Select Input</option>
+                    </select>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbInputType" id="rbUDP" value="inputUDP" align="middle">
+                    <label for="inlineFormCustomSelectPref">UDP/Multicast</label>
+                    </div>
+                    <div class="form-row">
+                    <div class="col-md-2">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">IP</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input type="text" value="0.0.0.0" asp-for="asd" id="txtUDPIP" class="form-control" placeholder="255.255.255.255">
+                    </div>
+                    <div class="col-md-2">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Port</label>
+                    </div>
+                    <div class="col-md-4">
+                    <input type="text" value="8888" id="txtUDPPort" class="form-control" placeholder="8888">
+                    </div>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbInputType" id="rbTest" value="inputTest" checked>
+                    <label for="inlineFormCustomSelectPref">Test signal - SMPTE Bars</label>
+                    </div>
+                    </form>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    <div class="card box-shadow mb-auto">
+                    <p class="lead text-muted text-center">Output</p>
+                    <form class="ml-3 mr-3">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">SRT</label>
+                    <div class="form-row">
+                    <div class="col-md-2">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">IP</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input type="text" value="0.0.0.0" id="txtSRTIP" class="form-control" placeholder="255.255.255.255">
+                    </div>
+                    <div class="col-md-2">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Port</label>
+                    </div>
+                    <div class="col-md-4">
+                    <input type="text" value="8888" id="txtSRTPort" class="form-control" placeholder="8888">
+                    </div>
+                    </div>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Latency (ms)</label>
+                    <input class="form-control" id="txtSRTLatency" type="text" value="120">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mode</label>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbSRTMode" id="rbListener" value="rbListener" checked="checked">
+                    <label class="form-check-label" for="rbSRTMode">Listener</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbSRTMode" id="rbCaller" value="rbCaller">
+                    <label class="form-check-label" for="rbSRTMode">Caller</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbSRTMode" id="rbRendezvous" value="rbRendezvous">
+                    <label class="form-check-label" for="rbSRTMode">Rendezvous</label>
+                    </div>
+                    <p> </p>
+                    <div>
+                    </div>
+                    <div class="col-md-1">
+                    <input class="form-check-input" type="checkbox" id="cbPassword" value="srtPassword">
+                    <label for="inlineFormCustomSelectPref">Password</label>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                    <input class="form-control" id="txtSRTPassword" type="password" placeholder="*****">
+                    </form>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4 align-items-end">
+                    <div class="card box-shadow mb-auto">
+                    <p class="lead text-muted text-center">Video</p>
+                    <form class="ml-3 mr-3">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbVideoCodec" id="rbH265" value="vcodecH265">
+                    <label class="form-check-label" for="rbVideoCodec">H.265/HEVC</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbVideoCodec" value="vcodecH264" id="rbH264" checked="true">
+                    <label class="form-check-label" for="rbVideoCodec">H.264</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbVideoCodec" value="vcodecMPEG2" id="rbMPEG2">
+                    <label class="form-check-label" for="rbVideoCodec">MPEG 2</label>
+                    </div>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (MBit/sec)</label>
+                    <div class="form-check">
+                    <select class="form-control" id="cbVideoBitrate" multiple="multiple">
+                    <option id="v1">1</option>
+                    <option id="v2">2</option>
+                    <option id="v3">3</option>
+                    <option id="v4">4</option>
+                    <option id="v5">5</option>
+                    <option id="v10">10</option>
+                    <option id="v20">20</option>
+                    </select>
+                    </div>
+                    </form>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    <div class="card box-shadow mb-auto">
+                    <p class="lead text-muted text-center">Audio</p>
+                    <form class="ml-3 mr-3">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Codec</label>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecAAC" id="rbAAC" checked="true">
+                    <label class="form-check-label" for="rbAudioCodec">AAC</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecMP3" id="rbMP3">
+                    <label class="form-check-label" for="rbAudioCodec">MP3</label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rbAudioCodec" value="acodecMPEG2" id="rbMPEG2Audio">
+                    <label class="form-check-label" for="rbAudioCodec">MPEG 2 Audio</label>
+                    </div>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bitrate (KBit/sec)</label>
+                    <div class="form-check">
+                    <select class="form-control" id="cbAudioBitrate" multiple="">
+                    <option id="a96">96</option>
+                    <option id="a128">128</option>
+                    <option id="a256">256</option>
+                    <option id="a384">384</option>
+                    </select>
+                    </div>
+                    </form>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4 align-items-end">
+                    <div class="card box-shadow mb-auto">
+                    <p class="text-muted text-center lead">Preview</p>
+                    <div>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text"><video id="video-canvas" width="320px" height="200px" class="mw-100 mh-100 bg-dark"></video></p>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    <div class="card box-shadow mb-auto">
+                    <p class="text-muted text-center lead">Statistics</p>
+                    <form class="ml-3 mr-3">
+                    <label id="lblCPU" class="my-1 mr-2" for="inlineFormCustomSelectPref">CPU:</label>
+                    <br>
+                    <label id="lblRAM" class="my-1 mr-2" for="inlineFormCustomSelectPref">RAM:</label>
+                    <br>
+                    <label id="lblIP" class="my-1 mr-2" for="inlineFormCustomSelectPref">IP :</label>
+                    <br>
+                    <label id="lblFrame" class="my-1 mr-2" for="inlineFormCustomSelectPref">Frame :</label>
+                    <br>
+                    <label id="lblBitrate" class="my-1 mr-2" for="inlineFormCustomSelectPref">Avg. Bitrate:</label>
+                    <br>
+                    <label id="lblSpeed" class="my-1 mr-2" for="inlineFormCustomSelectPref">Speed:</label>
+                    <br>
+                    <label id="lblTime" class="my-1 mr-2" for="inlineFormCustomSelectPref">Time:</label>
+                    <br>
+                    </form>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    <div class="card box-shadow mb-auto">
+                    <p class="lead text-muted text-center">Log Output</p>
+                    <div class="form-group col-md-12">
+                    <label for="formInput17">FFMPEG Log</label>
+                    <textarea class="form-control" id="txtEncoderLog" rows="5"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                    <label for="formInput17">SRT Log</label>
+                    <textarea class="form-control" id="txtSRTLog" rows="5"></textarea>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                    </div>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="col-md-4 align-items-end">
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                    </div>*@
+
+
+
+                @*</form>*@
+                @*<div>
+                    <p> </p>
+                    </div>
+                    <div id="statusBox" class="alert alert-danger" role="alert">Disconnected</div>*@
+            </div>
+        </div>
+    </main>
+
+    @*<form asp-action="StartSRTStream" asp-controller="Home">
+        <input type="submit" value="START SRT STREAM" class="btn btn-success" />
+        </form>*@
+</div>
